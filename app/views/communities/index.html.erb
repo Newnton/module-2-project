@@ -1,0 +1,7 @@
+<h1>Communities</h1>
+<% @communities.each do |community| %>
+<ul>
+  <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>
+    <li>Description: <%= community.description %></li>
+</ul>
+<% end %>
