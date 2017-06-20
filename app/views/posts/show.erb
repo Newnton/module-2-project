@@ -1,0 +1,15 @@
+<div class="">
+  <h1><%= @post.title %></h1>
+  <%= @post.content %><br>
+  <br>
+  <%= link_to "add a comment", new_comment_path %>
+</div>
+
+<div class="">
+  <h2>Comments:</h2>
+  <ul>
+    <%= @post.comments.each do |comment| %>
+    <li><%= comment.content %> <br> <%= comment.user %></li>
+    <% end %>
+  </ul>
+</div>
