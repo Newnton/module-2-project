@@ -1,0 +1,8 @@
+<h1>Create a Community</h1>
+<%= form_for(@community) do |t| %>
+<%= t.label :name, "Name:" %>
+<%= t.text_field :name %><br>
+<%= t.label :description, "Description:" %>
+<%= t.text_field :description %><br><br>
+<%= t.submit "Create Community" %>
+<% end %>

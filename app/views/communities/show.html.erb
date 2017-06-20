@@ -1,0 +1,11 @@
+<h1> <%= @community.name %> </h1>
+<ul>
+  <li>Description: <%= @community.description %></li>
+</ul>
+
+<h2>Community Posts</h2>
+<% @community.posts.each do |post| %>
+<ul>
+  <li>Title: <%= post.title %></li>
+</ul>
+<% end %>
