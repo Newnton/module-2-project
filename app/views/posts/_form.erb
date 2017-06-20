@@ -2,6 +2,6 @@
 <%= f.hidden_field :user_id, :value => current_user.id %>
 Title: <%= f.text_field :title %><br>
 Content: <%= f.text_field :content %><br>
-Community: <%= f.collection_select :post, :community_id, current_user.communities, :id, :name %><br>
+Community: <%= collection_select :post, :community_id, Community.all, :id, :name %><br>
 <%= f.submit %>
 <% end %>

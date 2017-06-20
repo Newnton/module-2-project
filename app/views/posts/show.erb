@@ -8,8 +8,8 @@
 <div class="">
   <h2>Comments:</h2>
   <ul>
-    <%= @post.comments.each do |comment| %>
-    <li><%= comment.content %> <br> <%= comment.user %></li>
+    <% @post.comments.each do |comment| %>
+    <li><%= comment.content %> <br> <%= comment.user.email %></li>
     <% end %>
   </ul>
 </div>

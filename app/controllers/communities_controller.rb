@@ -11,11 +11,11 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(community_params)
       if @community.save
-        flash[:success] = "Community Successfully Created!"
+        flash[:notice] = "Community Successfully Created!"
         redirect_to communities_path
       else
         if @community.errors.any?
-          flash[:error] = @community.errors.full_messages
+          flash[:notice] = @community.errors.full_messages
           render :new
         end
       end
