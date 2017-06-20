@@ -1,4 +1,4 @@
-<h1>CREATE YOUR PROFILE</h1>
+<!-- <h1>CREATE YOUR PROFILE</h1>
 <%= form_for @user do |f| %>
 Username: <%= f.text_field :username %>
 Email: <%= f.text_field :email %>
@@ -8,4 +8,50 @@ Password: <%= f.password_field :password %>
 Bio: <%= f.text_area :bio %>
 <br></br>
 <%= f.submit %>
-<% end %>
+<% end %> -->
+
+
+  <br>
+  <br>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4 col-md-offset-4">
+  <div class="form-body">
+      <ul class="nav nav-tabs final-login">
+          <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
+      </ul>
+      <div class="tab-content">
+          <div id="sectionA" class="tab-pane fade in active">
+          <div class="innter-form">
+            <form class="sa-innate-form" action="/users" method="POST">
+              <label>Username:</label><br>
+              <input type="text" id="user_name" name="user[username]"><br>
+
+              <label>Email:</label><br>
+              <input type="text" id="user_email" name="user[email]"><br>
+
+              <label>Password:</label><br>
+              <input type='password' id="user_password" name="user[password]"></input><br>
+
+              <label>Bio:</label><br>
+              <textarea type='text' id="user_bio" name="user[bio]"></textarea><br>
+
+
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="submit" value="Submit">
+            </form>
+
+          <p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
+                       </form>
+                       </div>
+                       <div class="social-login">
+                       <p>- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - - </p>
+               		<ul>
+                       <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
+                       <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
+                       <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+                       </ul>
+                       </div>
+              <div class="clearfix"></div>
+
+          </div>
