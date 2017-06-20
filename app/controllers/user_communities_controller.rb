@@ -1,4 +1,5 @@
 class UserCommunitiesController < ApplicationController
+  before_action :authenticated
   def create
   @user_community = UserCommunity.new(user_id:current_user.id, community_id:params[:id])
     if @user_community.save
