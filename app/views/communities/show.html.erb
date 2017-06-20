@@ -5,6 +5,7 @@
 </ul>
 
 <h2>Community Posts</h2>
+<%= link_to "Create Post", new_post_path(@community) %>
 <% @community.posts.each do |post| %>
 <ul>
   <li>Title: <%= link_to post.title, post_path(post) %></li>
