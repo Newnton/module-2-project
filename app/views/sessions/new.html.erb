@@ -1,8 +1,44 @@
-<h1>SIGN IN</h1>
+<!-- <h1>SIGN IN</h1>
 <%= form_tag sessions_path do %>
   Email: <%= text_field_tag 'user[email]' %>
   <br></br>
   Password: <%= password_field_tag 'user[password]'%>
   <br></br>
   <%= submit_tag 'Log in' %>
-<% end %>
+<% end %> -->
+<br>
+<br>
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+<div class="form-body">
+    <ul class="nav nav-tabs final-login">
+        <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+        <div class="innter-form">
+          <form class="sa-innate-form" action="<%= sessions_path %>" method="POST">
+            <label>Email:</label><br>
+            <input type="text" id="user_email" name="user[email]"><br>
+
+            <label>Password:</label><br>
+            <input type='password' id="user_password" name="user[password]"></input><br>
+
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" value="Submit">
+          </form>
+          <a href="">Forgot Password?</a>
+                     </form>
+                     </div>
+                     <div class="social-login">
+                     <p>- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - - </p>
+             		<ul>
+                     <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
+                     <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
+                     <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+                     </ul>
+                     </div>
+            <div class="clearfix"></div>
+
+        </div>
