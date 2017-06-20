@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id]=@user.id
-      redirect_to communities_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -30,6 +30,20 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @following = @user.following
+    render :following
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @followers = @user.followers
+    render :followers
   end
 
   private

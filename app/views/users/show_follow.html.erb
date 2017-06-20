@@ -1,0 +1,17 @@
+<h1>Followers</h1>
+<% if !@followers.nil? %>
+  <% @followers.each do |follower| %>
+  <%= gravatar_for_eighty_px(follower) %><h1><%= follower.username %></h1>
+  <% end %>
+<% else %>
+    <p>You have no followers yet.</p>
+<% end %>
+
+<h1>Following</h1>
+<% if !@following.nil? %>
+  <% @following.each do |follow| %>
+  <%= gravatar_for_eighty_px(follow) %><h1><%= follow.username %></h1>
+  <% end %>
+<% else %>
+    <p>You are not following anyone yet.</p>
+<% end %>

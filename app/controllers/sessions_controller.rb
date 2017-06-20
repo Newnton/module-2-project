@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email:params[:user][:email])
     if !user.nil? && user.authenticate(params[:user][:password])
       session[:user_id]=user.id
-      redirect_to communities_path
+      redirect_to user_path(user)
     else
       render 'new'
     end
