@@ -1,4 +1,5 @@
 <h1>Communities</h1>
+<p> <%= link_to "Create a Community", new_community_path %> </p>
 <% @communities.each do |community| %>
 <ul>
   <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>

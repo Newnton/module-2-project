@@ -4,7 +4,7 @@
   <li><%= link_to 'Subscribe', subscribe_path(@community), method: :post%></li>
 </ul>
 
-<h2>Community Posts</h2>
+<h2>Posts</h2>
 <%= link_to "Create Post", new_post_path(@community) %>
 <% @community.posts.each do |post| %>
 <ul>

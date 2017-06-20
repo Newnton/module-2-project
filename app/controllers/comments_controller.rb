@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticated
+
   def new
     @post = Post.find(params[:id])
     @comment = Comment.new

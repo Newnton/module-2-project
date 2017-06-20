@@ -1,0 +1,12 @@
+<h1><%= @user.username %></h1>
+<p>Email: <%= @user.email %></p>
+<p>Bio: <%= @user.bio %> </p>
+<%= link_to "Edit Profile", edit_user_path(current_user) %>
+
+<h1>My Communities</h1>
+<p><%= link_to "Add Communities", communities_path %></p>
+<% @user.communities.each do |community| %>
+<ul>
+  <li> <%=link_to community.name, community_path(community) %> </li>
+</ul>
+<% end %>

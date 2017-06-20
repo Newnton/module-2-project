@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  before_action :authenticated
   def new
     @community = Community.find(params[:id])
     @post = Post.new
