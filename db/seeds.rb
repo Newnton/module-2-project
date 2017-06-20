@@ -5,9 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-20.times do
+
+
+10.times do
   Community.create!(
-  name: Faker::Name.unique.name,
-  description: Faker::Lorem.sentence
+    name: Faker::Space.star,
+    description: Faker::ChuckNorris.fact
+  )
+end
+
+10.times do
+  Community.create!(
+    name: Faker::GameOfThrones.city,
+    description: Faker::Friends.quote
   )
 end

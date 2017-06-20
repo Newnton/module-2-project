@@ -9,7 +9,7 @@
   <%= link_to "add a comment", new_comment_path %>
   <ul>
     <% @post.comments.each do |comment| %>
-    <li><%= comment.content %> <br> <%= comment.user.username %></li>
+    <li><%= gravatar_for_forty_px comment.user.email %><%= comment.content %> <br> <%= link_to comment.user.username, user_path(comment.user.id) %></li>
     <% end %>
   </ul>
 </div>
