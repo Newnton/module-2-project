@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :sessions
   resources :comments, except: :new
   get '/comments/new/:id' => 'comments#new', as: 'new_comment'
-  resources :posts
+  resources :posts, except: :new
+  get '/posts/new/:id', to: 'posts#new', as: 'new_post'
   resources :communities
   post '/user_communities/create/:id' => 'user_communities#create', as: 'subscribe'
   resources :users
