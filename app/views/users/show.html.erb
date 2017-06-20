@@ -1,4 +1,8 @@
-<h1><%= @user.username %></h1>
+<h1>
+  <%= gravatar_for_eighty_px @user %>
+  Hi, <%= @user.username %>
+</h1>
+<p><%= link_to 'Add', 'https://en.gravatar.com/' %> profile picture.</p><br>
 <p>Email: <%= @user.email %></p>
 <p>Bio: <%= @user.bio %> </p>
 <%= link_to "Edit Profile", edit_user_path(current_user) %>
