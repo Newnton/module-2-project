@@ -1,5 +1,6 @@
 <div class="">
   <h1><%= @post.title %></h1>
+  <p>Author: <%=link_to @post.user.username, user_path(@post.user.id) %></p>
   <%= @post.content %><br>
   <br>
 </div>

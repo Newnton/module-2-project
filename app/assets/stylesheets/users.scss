@@ -17,19 +17,60 @@ font-weight: bold;
   color: blue;
 }
 
+#profile-box {
+    margin: 10px;
+    padding: 20px;
+    background: darkgray;
+    width: 400px;
+}
+
 
 #profile {
-      width: 330px;
-      background: lightgray;
-      margin: 10px;
-      padding: 20px;
+  width: 330px;
+  background: lightgray;
+  margin: 10px;
+  padding: 20px;
+  height: 350px;
+}
+
+#newsfeed {
+  width: 450px;
+  margin: 10px;
+  padding: 20px;
+  position: relative;
+  top: -310px;
+  left: 400px;
+  background: lightblue;
+}
+
+#newsfeed-box {
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background: darkblue;
+    width: 400px;
+    top: -310px;
+    left: 400px;
+}
+
+#postnewstext {
+  text-align: center;
 }
 
 #my-communities {
-      width: 330px;
-      background: lightgreen;
-      margin: 10px;
-      padding: 20px;
+    margin: 10px;
+    padding: 20px;
+    background: #ccc;
+    width: 330px;
+    background-color: yellow;
+}
+
+#communities-box {
+    margin: 10px;
+    padding: 20px;
+    background: #ccc;
+    width: 400px;
+    background-color: red;
 }
 
 .unsub-link-to-text-color {

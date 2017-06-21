@@ -1,4 +1,4 @@
-<div id="profile">
+  <div id="profile">
     <h2 class="ps">
         <%= gravatar_for_eighty_px @user %> Hi, <%= @user.username %>
     </h2>
@@ -13,18 +13,32 @@
       <p>Email: <%= @user.email %></p>
       <p>Bio: <%= @user.bio %></p>
       <%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-link" %>
+    </div>
+      <div id="newsfeed">
+        <h3 id="postnewstext">Post NewsFeed</h3>
+        <% if @feed_items.any? %>
+        <% @feed_items.each do |posts| %>
+          <% posts.each do |post| %>
+        <ul>
+          <li>Title: <%= link_to post.title, post_path(post), class: "edit-link" %> | Created: <%= post.created_at.in_time_zone('Eastern Time (US & Canada)') %></li>
+        </ul>
+        <% end %>
+        <% end %>
+        <% end %>
+      </div>
   </div>
 
-</div>
-  <div id="my-communities">
-  <h2>My Communities</h2>
-  <p><%= link_to "Browse Communities", communities_path, class: 'edit-link'%></p>
-  <% @user.communities.each do |community| %>
-  <ul>
-    <div>
-      <li> <%=link_to community.name, community_path(community), class: 'edit-link'%><%= link_to " | unsubscribe", unsubscribe_path(community), method: :delete, class: 'unsub-link-to-text-color' %>
-      </li>
-    </div>
-  </ul>
-  <% end %>
-</div>
+
+  </div>
+    <div id="my-communities">
+    <h2>My Communities</h2>
+    <p><%= link_to "Browse Communities", communities_path, class: 'edit-link'%></p>
+    <% @user.communities.each do |community| %>
+    <ul>
+      <div>
+        <li> <%=link_to community.name, community_path(community), class: 'edit-link'%><%= link_to " | unsubscribe", unsubscribe_path(community), method: :delete, class: 'unsub-link-to-text-color' %>
+        </li>
+      </div>
+    </ul>
+    <% end %>
+  </div>

@@ -6,6 +6,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @post = current_user.posts.build
+    @feed_items = []
+    @feed_items << @user.posts
+    if @user.following
+      @user.following.each do |user|
+        @feed_items << user.posts
+      end
+    end
   end
 
   def create
