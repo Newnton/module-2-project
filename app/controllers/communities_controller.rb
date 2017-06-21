@@ -17,8 +17,8 @@ class CommunitiesController < ApplicationController
       else
         if @community.errors.any?
           flash[:notice] = @community.errors.full_messages
-          render :new
         end
+          render :new
       end
   end
 

@@ -9,14 +9,14 @@
 
 10.times do
   Community.create!(
-    name: Faker::Space.star,
+    name: Faker::Hipster.unique.sentence,
     description: Faker::ChuckNorris.fact
   )
 end
 
 10.times do
   Community.create!(
-    name: Faker::GameOfThrones.city,
+    name: Faker::LordOfTheRings.unique.character,
     description: Faker::Friends.quote
   )
 end

@@ -8,8 +8,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash[:notice] = "Post Created!"
       redirect_to post_path(@post)
     else
+      if @post.errors.any?
+        flash[:notice] = @post.errors.full_messages
+      end
       render :new
     end
   end
@@ -21,8 +25,12 @@ class PostsController < ApplicationController
   def update
     @post = current_post
     if @post.update(post_params)
+      flash[:notice] = "Post Updated!"
       redirect_to post_path(@post)
     else
+      if @post.errors.any?
+        flash[:notice] = @post.errors.full_messages
+      end
       render :edit
     end
   end

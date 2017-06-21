@@ -2,13 +2,17 @@
   <%= gravatar_for_eighty_px @user %>
   Hi, <%= @user.username %>
 </h1>
-<p><%= link_to 'Add', 'https://en.gravatar.com/' %> profile picture.</p><br>
+<p><%= link_to 'Add', 'https://en.gravatar.com/' %> profile picture.</p>
+<%= render 'follow_form' if logged_in? %>
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section><br>
 <p>Email: <%= @user.email %></p>
 <p>Bio: <%= @user.bio %> </p>
 <%= link_to "Edit Profile", edit_user_path(current_user) %>
 
 <h1>My Communities</h1>
-<p><%= link_to "Add Communities", communities_path %></p>
+<p><%= link_to "Browse Communities", communities_path %></p>
 <% @user.communities.each do |community| %>
 <ul>
   <li> <%=link_to community.name, community_path(community) %> </li>

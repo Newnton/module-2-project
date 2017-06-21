@@ -11,9 +11,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = "Sign Up Successful!"
       session[:user_id]=@user.id
-      redirect_to communities_path
+      redirect_to user_path(@user)
     else
+      if @user.errors.any?
+        flash[:notice] = @user.errors.full_messages
+      end
       render 'new'
     end
   end
@@ -30,6 +34,18 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @following = @user.following
+    render :following
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers
+    render :followers
   end
 
   private
