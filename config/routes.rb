@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/posts/new/:id', to: 'posts#new', as: 'new_post'
   resources :communities
   post '/user_communities/create/:id' => 'user_communities#create', as: 'subscribe'
+  delete '/user_communities/destroy/:id', to: 'user_communities#destroy', as: 'unsubscribe'
   resources :users do
     member do
       get :following, :followers

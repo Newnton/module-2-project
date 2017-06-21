@@ -9,8 +9,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
+      flash[:notice] = "Comment Added Successfully!"
       redirect_to post_path(@comment.post_id)
     else
+      if @comment.errors.any?
+        flash[:notice] = @comment.errors.full_messages
+      end
       render :new
     end
   end
@@ -22,8 +26,12 @@ class CommentsController < ApplicationController
   def update
     @comment = current_comment
     if @comment.update(comment_params)
+      flash[:notice] = "Comment Updated Successfully!"
       redirect_to comment_path(@comment)
     else
+      if @comment.errors.any?
+        flash[:notice] = @comment.errors.full_messages
+      end
       render :edit
     end
   end
