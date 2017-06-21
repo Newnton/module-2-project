@@ -1,4 +1,4 @@
-<h1> Your Followers:</h1>
+<h1> <%= @user.username %> Followers:</h1>
 <% if !@followers.nil? %>
   <% @followers.each do |follower| %>
   <%= gravatar_for_forty_px(follower.email) %><%=link_to follower.username, user_path(follower) %>

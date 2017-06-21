@@ -1,4 +1,4 @@
-<h1>You're Following:</h1>
+<h1> <%= @user.username %> is Following:</h1>
 <% if !@following.nil? %>
   <% @following.each do |follow| %>
   <%= gravatar_for_forty_px(follow.email) %><%= link_to follow.username, user_path(follow) %>

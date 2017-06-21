@@ -9,4 +9,5 @@ class UserCommunitiesController < ApplicationController
     end
     redirect_to community_path(@user_community.community_id)
   end
+
 end
