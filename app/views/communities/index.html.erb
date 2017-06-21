@@ -1,8 +1,26 @@
-<h1>Communities</h1>
-<p> <%= link_to "Create a Community", new_community_path %> </p>
-<% @communities.each do |community| %>
-<ul>
-  <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>
-    <li>Description: <%= community.description %></li>
-</ul>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      a:link {
+        color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Communities:</h1>
+    <p> <%= link_to "Create a Community", new_community_path%> </p>
+    <% @communities.each do |community| %>
+    <ul>
+      <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>
+        <li>Description: <%= community.description %></li>
+    </ul>
+    <% end %>
+  </body>
+</html>
