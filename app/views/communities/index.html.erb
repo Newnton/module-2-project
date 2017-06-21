@@ -14,13 +14,26 @@
     </style>
   </head>
   <body>
+  <% if params[:search].nil? %>
     <h1>Communities:</h1>
     <p> <%= link_to "Create a Community", new_community_path%> </p>
     <% @communities.each do |community| %>
     <ul>
       <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>
+      <li>Description: <%= community.description %></li>
+    </ul>
+    <% end %>
+  <% elsif @communities_search.blank? %>
+    <h4>There are no communities containing the term <%= params[:search] %>.</h4>
+  <% elsif !@communities_search.blank?%>
+    <h1>Communities Search Results:</h1>
+    <p> <%= link_to "Create a Community", new_community_path%> </p>
+    <% @communities_search.each do |community| %>
+    <ul>
+      <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>
         <li>Description: <%= community.description %></li>
     </ul>
+    <% end %>
     <% end %>
   </body>
 </html>

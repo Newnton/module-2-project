@@ -3,6 +3,11 @@ class CommunitiesController < ApplicationController
 
   def index
     @communities = Community.all
+    if params[:search]
+      @communities_search = Community.all.search(params[:search]).order("created_at DESC")
+    else
+      @posts = Post.all.order('created_at DESC')
+    end
   end
 
   def new
@@ -34,9 +39,14 @@ class CommunitiesController < ApplicationController
 
 
 
+
   private
 
+  # def search(search)
+  #   where("name LIKE ? OR description LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+  # end
+
   def community_params
-    params.require(:community).permit(:name, :description)
+    params.require(:community).permit(:name, :description, :search)
   end
 end
