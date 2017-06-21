@@ -17,6 +17,7 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(community_params)
       if @community.save
+        UserCommunity.new(user_id: current_user.id, community_id: @community.id, admin: true)
         flash[:notice] = "Community Successfully Created!"
         redirect_to communities_path
       else
@@ -25,6 +26,21 @@ class CommunitiesController < ApplicationController
         end
           render :new
       end
+  end
+
+  def edit
+    @community = Community.find(params[:id])
+    verify_admin(@community)
+  end
+
+  def update
+    @community = Community.find(params[:id])
+    if @community.update(community_params)
+      flash[:notice] = 'updated community'
+      redirect_to community_path(@community)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -49,4 +65,5 @@ class CommunitiesController < ApplicationController
   def community_params
     params.require(:community).permit(:name, :description, :search)
   end
+
 end

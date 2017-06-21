@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add Administrators:</h1>
+    <%= form_tag('/promote_user', method: 'post') do %>
+      <%= hidden_field_tag 'community_id', @community.id%>
+      <%= collection_select(:user, :user_id, @community_users, :id, :username) %><br>
+      <br>
+      <%= submit_tag "promote selected" %>
+    <% end %>
+  </body>
+</html>
