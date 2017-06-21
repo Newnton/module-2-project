@@ -1,3 +1,24 @@
-<h1>Welcome to RCS!</h1>
-<h3><%= link_to "Create an Account",new_user_path%></h3>
-<h3><%= link_to "Log into Account", new_session_path %></h3>
+
+
+<header class="intro">
+       <div class="intro-body">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-8 col-md-offset-2">
+                       <h1 class="brand-heading">Welcome to RCS</h1>
+                       <p class="intro-text">In High School you was the man homie...</p>
+
+                         <div class="custombuttons">
+                           <%= link_to "Create an Account",new_user_path%>
+                         </div>
+                         <br>
+                         <div class="custombuttons">
+                           <%= link_to "Log into Account", new_session_path %>
+                         </div>
+
+
+                   </div>
+               </div>
+           </div>
+       </div>
+   </header>
