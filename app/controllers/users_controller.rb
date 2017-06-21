@@ -32,6 +32,9 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile Updated Successfully!"
       redirect_to user_path(user)
     else
+      if user.errors.any?
+        flash[:notice] = user.errors.full_messages
+      end
       render :edit
     end
   end
