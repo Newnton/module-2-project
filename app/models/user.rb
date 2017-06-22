@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
-      if !auth.info.emal.nil?
+      if !auth.info.email.nil?
       user.email = auth.info.email
       else
       user.email= "#{auth['uid']}@#{auth['provider']}.com"
