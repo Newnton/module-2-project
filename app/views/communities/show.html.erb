@@ -2,6 +2,11 @@
 
 <ul>
   <li>Description: <%= @community.description %></li>
+  <% if is_admin?(@community) %>
+    <li><%= link_to "promote user to admin", promote_path %></li>
+    <li><%= link_to "edit community", edit_community_path(@community) %></li>
+    <li><%= link_to "delete community (WARNING: PERMANENT)", community_path(@community), method: :delete %></li>
+  <% end %>
 </ul>
 
 <h2>Posts</h2>

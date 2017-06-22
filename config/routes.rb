@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     end
     end
   resources :relationships, only: [:create, :destroy]
+
+  get '/promote/:id', to: 'user_communities#promote', as: 'promote'
+  post '/promote_user', to: 'user_communities#promote_user'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
