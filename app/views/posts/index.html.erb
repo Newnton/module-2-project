@@ -1,0 +1,13 @@
+<body>
+<% if @posts_search.blank? %>
+  <h4>There are no posts containing the term <%= params[:search] %>.</h4>
+<% elsif @communities_search.blank?%>
+  <h1>Posts Search Results:</h1>
+  <% @posts_search.each do |post| %>
+  <ul>
+    <li>Name: <%= link_to "#{post.title}", post_path(post) %> </li>
+      <li>Description: <%= truncate(post.content, length: 25) %></li>
+  </ul>
+  <% end %>
+  <% end %>
+</body>

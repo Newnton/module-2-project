@@ -320,3 +320,14 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
+
+.day-in-history {
+  width: 475px;
+  margin: auto;
+  padding: 20px;
+  left: 400px;
+  top: 10px;
+  background: lightblue;
+  font-weight: bold;
+  text-align: center;
+}

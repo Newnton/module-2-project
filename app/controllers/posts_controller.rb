@@ -1,5 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticated
+
+  def index
+    if params[:search]
+      @posts_search = Post.all.search(params[:search]).order("created_at DESC")
+    end
+  end
+
   def new
     @community = Community.find(params[:id])
     @post = Post.new

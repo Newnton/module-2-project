@@ -3,6 +3,7 @@
   <% if @post.photo %>
   <%= image_tag @post.photo%><br>
   <% end %><br>
+  <p>Author: <%=link_to @post.user.username, user_path(@post.user.id) %></p>
   <%= @post.content %><br>
   <br>
 </div>

@@ -6,6 +6,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @post = current_user.posts.build
+    @feed_items = []
+    @feed_items << @user.posts
+    if @user.following
+      @user.following.each do |user|
+        @feed_items << user.posts
+      end
+    end
+    @feed_items.flatten!
+    @feed_items.sort_by! { |x| x.created_at }
+    @feed_items.reverse!
   end
 
   def create
