@@ -40,7 +40,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'faker'
 
 gem 'omniauth-github'
 gem 'omniauth-facebook'

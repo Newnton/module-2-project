@@ -250,13 +250,10 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   json
   listen (>= 3.0.5, < 3.2)
-<<<<<<< HEAD
-  paperclip!
-=======
   nokogiri
   omniauth-facebook
   omniauth-github
->>>>>>> 606cfa5d47635d8819fabb45a502c80dbe87c4ca
+  paperclip!
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.1)

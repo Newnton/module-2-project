@@ -13,7 +13,8 @@
   <%= link_to "add a comment", new_comment_path %>
   <ul>
     <% @post.comments.each do |comment| %>
-    <li><%= gravatar_for_forty_px comment.user.email %><%= comment.content %> <br> <%= link_to comment.user.username, user_path(comment.user.id) %></li>
+    <li>
+      <img src="<%= comment.user.avatar_url %>" height="40" width="40"> <%= comment.content %> <br> <%= link_to comment.user.username, user_path(comment.user.id) %></li>
     <% end %>
   </ul>
 </div>
