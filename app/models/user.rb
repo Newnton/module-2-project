@@ -48,4 +48,8 @@ class User < ApplicationRecord
     Post.where("user_id = ?", id)
   end
 
+  def self.search(search)
+    where("username iLIKE ?", "%#{search.downcase}%")
+  end
+
 end
