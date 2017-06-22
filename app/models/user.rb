@@ -15,6 +15,22 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: {case_sensitive: false }
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      if !auth.info.email.nil?
+      user.email = auth.info.email
+      else
+      user.email= "#{auth['uid']}@#{auth['provider']}.com"
+      end
+      user.uid = auth.uid
+      user.provider = auth.provider
+      user.avatar_url = auth.info.image
+      user.username = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.password = 'secret'
+      user.save!
+    end
+  end
 
   def follow(other_user)
     following << other_user

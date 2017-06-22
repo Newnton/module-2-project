@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "/auth/:provider/callback", to: "githubsessions#create"
+  get 'auth/failure', to: redirect('/')
+  delete 'signout', to: 'githubsessions#destroy', as: 'signout'
+
+
   root 'static#home'
   resources :static
   resources :sessions

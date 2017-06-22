@@ -38,8 +38,8 @@ gem 'faker'
 # gem 'capistrano-rails', group: :development
 gem 'faker'
 
-gem 'simple_form'
-
+gem 'omniauth-github'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
