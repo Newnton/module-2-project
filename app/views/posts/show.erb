@@ -1,5 +1,8 @@
 <div class="">
   <h1><%= @post.title %></h1>
+  <% if @post.photo %>
+  <%= image_tag @post.photo%><br>
+  <% end %><br>
   <%= @post.content %><br>
   <br>
 </div>
