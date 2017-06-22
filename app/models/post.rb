@@ -5,4 +5,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+
+  def self.search(search)
+    where("title iLIKE ? OR content iLIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+  end
 end
