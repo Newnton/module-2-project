@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 
   root 'static#home'
+  resources :static
   resources :sessions
   resources :comments, except: :new
   get '/comments/new/:id' => 'comments#new', as: 'new_comment'

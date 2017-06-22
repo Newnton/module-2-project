@@ -44,4 +44,8 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def feed
+    Post.where("user_id = ?", id)
+  end
+
 end
