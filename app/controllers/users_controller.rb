@@ -14,6 +14,9 @@ class UsersController < ApplicationController
         @feed_items << user.posts
       end
     end
+    @feed_items.flatten!
+    @feed_items.sort_by! { |x| x.created_at }
+    @feed_items.reverse!
   end
 
   def create
