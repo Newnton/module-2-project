@@ -16,7 +16,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+    # where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+    user = User.find_or_create_by(uid: auth['uid'], provider:  auth['provider'])
       if !auth.info.email.nil?
       user.email = auth.info.email
       else
@@ -28,8 +29,13 @@ class User < ApplicationRecord
       user.username = auth.info.name
       user.oauth_token = auth.credentials.token
       user.password = 'secret'
-      user.save!
-    end
+      if user.nil?
+        user
+      else
+        user.save!
+        user
+      end
+    # end
   end
 
   def follow(other_user)

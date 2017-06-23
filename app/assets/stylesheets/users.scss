@@ -1,94 +1,32 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mainbody {
+    background:#f0f0f0;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.brand_network {
+    color: #9D9D9D;
+    float: left;
+    position: absolute;
+    left: 70px;
+    top: 30px;
+    font-size: smaller;
+}
+
+.post-content {
+    margin-left:58px;
+}
+
+.badge-important {
+    margin-top: 3px;
+    margin-left: 25px;
+    position: absolute;
+}
+
 body {
-  background-color: black;
-}
-
-#add-photo {
-  font-size: 10px;
-}
-
-#profile-text {
-font-weight: bold;
-}
-
-.edit-link {
-  color: blue;
-}
-
-#profile-box {
-    margin: 10px;
-    padding: 20px;
-    background: darkgray;
-    width: 400px;
-}
-
-
-#profile {
-  width: 330px;
-  background: lightgray;
-  margin: 10px;
-  padding: 20px;
-  height: 350px;
-}
-
-#newsfeed {
-  width: 475px;
-  margin: 10px;
-  padding: 20px;
-  position: relative;
-  top: -310px;
-  left: 400px;
-  background: lightblue;
-  font-weight: bold;
-}
-
-#newsfeed-box {
-    text-align: center;
-    margin: 10px;
-    padding: 20px;
-    background: darkblue;
-    width: 400px;
-    top: -310px;
-    left: 400px;
-}
-
-#postnewstext {
-  text-align: center;
-}
-
-#my-communities {
-    margin: 10px;
-    padding: 20px;
-    background: #ccc;
-    width: 330px;
-    background-color: yellow;
-}
-
-#communities-box {
-    margin: 10px;
-    padding: 20px;
-    background: #ccc;
-    width: 400px;
-    background-color: red;
-}
-
-.unsub-link-to-text-color {
-  font-size: 13px;
-  font-style: italic;
-  color: red;
-}
-
-
-.stats {
-  text-align: center;
-  font-weight: bold;
-  font-color: black;
-  font-size: 17px;
-  width: 300px;
-  height: 50px;
-  border: 1px;
-  margin: 40px, 5px, 42px, 200px;
-  padding: 50px, 30px, 40px, 50px;
+    background-color: #e8e8e8;
 }
