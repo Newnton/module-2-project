@@ -1,11 +1,23 @@
-<h1>Edit <%= @user.username %> </h1>
-<%= form_for @user do |f| %>
-Username: <%= f.text_field :username %>
-Email: <%= f.text_field :email %>
-<br></br>
-Password: <%= f.password_field :password %>
-<br></br>
-Bio: <%= f.text_area :bio %>
-<br></br>
-<%= f.submit %>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                <img class="profile-img" src="<%= @user.avatar_url %>"
+                    alt="">
+                <form class="form-signin" action="<%= user_path(@user) %>" method="POST">
+                  <input type="hidden" name="_method" value="patch">
+                  <label>Username:</label><br>
+                  <input type="text" class="form-control" id="user_username" name="user[username]" value="<%= @user.username %>"><br>
+                  <label>Email:</label><br>
+                  <input type="text" class="form-control" id="user_email" name="user[email]" value="<%= @user.email %>"><br>
+                  <label>Password:</label><br>
+                  <input type='password'  class="form-control" id="user_password" name="user[password]"></input><br>
+                  <label>Bio:</label><br>
+                  <input type='text'  class="form-control" id="user_password" name="user[bio]" value="<%= @user.bio %>"></input><br>
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

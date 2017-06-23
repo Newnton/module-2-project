@@ -29,7 +29,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">RCS Homepage</a>
+        <a class="navbar-brand" href="/">Home</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,7 +38,7 @@
           <% if logged_in? %>
             <li><a href="/users/<%=current_user.id%>">Profile <span class="sr-only">(current)</span></a></li>
           <% end %>
-          <li><a href="/communities">All Communities</a></li>
+          <!-- <li><a href="/communities">All Communities</a></li> -->
           <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Communities <span class="caret"></span></a>
@@ -49,19 +49,19 @@
             </ul>
           </li>
           <% end %>
+          <form class="navbar-form navbar-left" action="/communities">
+            <div class="form-group">
+              <input type="text" name='search' class="form-control" action="/communities" placeholder="Search Communities/Posts">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <form class="navbar-form navbar-left" action="/users">
+            <div class="form-group">
+              <input type="text" name='search' class="form-control" action="/users" placeholder="Search Users">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
         </ul>
-        <form class="navbar-form navbar-left" action="/communities">
-          <div class="form-group">
-            <input type="text" name='search' class="form-control" action="/communities" placeholder="Search Communities/Posts">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <form class="navbar-form navbar-left" action="/users">
-          <div class="form-group">
-            <input type="text" name='search' class="form-control" action="/users" placeholder="Search Users">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li> <%= link_to "Logout", session_path(current_user), method: :delete %></li>

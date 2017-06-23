@@ -85,9 +85,9 @@
                     <% if @feed_items.any? %>
                     <% @feed_items.each do |post| %>
                     <ul>
-                      <li>Title: <%= link_to post.title, post_path(post), class: "edit-link" %></li>
-                      <li>Author: <%= link_to post.user.username, user_path(post.user.id), class: "edit-link" %></li>
-                      <li>Created: <%= link_to post.created_at.strftime("%m/%d/%y @ %I:%M%p"), static_path(post.id), class: "edit-link"  %></li>
+                      <li>Title: <%= link_to post.title, post_path(post), class: "edit-link" %>
+                      || Author: <%= link_to post.user.username, user_path(post.user.id), class: "edit-link" %>
+                      || Created: <%= link_to post.created_at.strftime("%m/%d/%y @ %I:%M%p"), static_path(post.id), class: "edit-link"  %></li>
                     </ul>
                     <% end %>
                     <% end %>
@@ -110,7 +110,7 @@
                       </div>
                     </ul>
                     <% end %>
-                      
+
                       </div>
                   </div>
               </div>
