@@ -1,8 +1,12 @@
 <%= form_for(@post, multipart: true) do |f| %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-<%= f.hidden_field :community_id, :value => @community.id %>
-Title: <%= f.text_field :title %><br>
-Image: <%= f.file_field :photo %>
-Content: <%= f.text_field :content %><br>
-<%= f.submit %>
+  <% if !@community.nil? %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :community_id, :value => @community.id %>
+  <% end %>
+  Title:<br>
+  <%= f.text_field :title %><br>
+  Content:<br>
+  <%= f.text_area :content %><br>
+  Upload image: <%= f.file_field :photo %><br>
+  <%= f.submit %>
 <% end %>
