@@ -5,8 +5,7 @@ class CommunitiesController < ApplicationController
     @communities = Community.all
     if params[:search]
       @communities_search = Community.all.search(params[:search]).order("created_at DESC")
-    else
-      @posts = Post.all.order('created_at DESC')
+      @posts_search = Post.all.search(params[:search]).order("created_at DESC")
     end
   end
 

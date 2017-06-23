@@ -1,7 +1,9 @@
 <%= form_for @comment do |f| %>
-<%= gravatar_for_forty_px(current_user.email)%>
+  <% if !current_user.avatar_url.nil?%>
+    <img src="<%= current_user.avatar_url %>" height="40" width="40">
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :post_id, :value => @post.id %>
 Comment: <%= f.text_field :content %><br>
 <%= f.submit %>
+<% end %>
 <% end %>

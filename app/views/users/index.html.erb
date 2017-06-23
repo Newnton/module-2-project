@@ -1,0 +1,11 @@
+<% if !@users_search.blank? %>
+  <h1>Users Search Results:</h1>
+  <% @users_search.each do |user| %>
+  <ul>
+    <li>Name: <%= link_to "#{user.username}", user_path(user) %> </li>
+    <li>Bio: <%= user.bio %></li>
+  </ul>
+  <% end %>
+<% else %>
+  <h1><%= "There are no users that match #{params[:search]}" %></h1>
+  <% end %>

@@ -24,7 +24,7 @@
     </ul>
     <% end %>
   <% elsif @communities_search.blank? %>
-    <h4>There are no communities containing the term <%= params[:search] %>.</h4>
+    <h4>There are no communities/posts containing the term <%= params[:search] %>.</h4>
   <% elsif !@communities_search.blank?%>
     <h1>Communities Search Results:</h1>
     <p> <%= link_to "Create a Community", new_community_path%> </p>
@@ -32,6 +32,13 @@
     <ul>
       <li>Name: <%= link_to "#{community.name}", community_path(community) %> </li>
         <li>Description: <%= community.description %></li>
+    </ul>
+    <% end %>
+    <h1>Post Search Results:</h1>
+    <% @posts_search.each do |post| %>
+    <ul>
+      <li>Name: <%= link_to "#{post.title}", post_path(post) %> </li>
+      <li>Description: <%= truncate(post.content, length: 25) %></li>
     </ul>
     <% end %>
     <% end %>

@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticated, except: [:new, :create]
+
+  def index
+    @users_search = User.all.search(params[:search]).order("created_at DESC")
+  end
+
   def new
     @user = User.new
   end
