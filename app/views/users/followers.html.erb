@@ -1,7 +1,7 @@
 <h1> <%= @user.username %> Followers:</h1>
 <% if !@followers.nil? %>
   <% @followers.each do |follower| %>
-  <%= gravatar_for_forty_px(follower.email) %><%=link_to follower.username, user_path(follower) %>
+  <%= follower.avatar_url %><%=link_to follower.username, user_path(follower) %>
   <% end %>
 <% else %>
     <p>You have no followers yet.</p>
