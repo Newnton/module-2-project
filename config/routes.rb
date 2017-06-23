@@ -23,5 +23,6 @@ Rails.application.routes.draw do
 
   get '/promote/:id', to: 'user_communities#promote', as: 'promote'
   post '/promote_user', to: 'user_communities#promote_user'
+  match "*path", to: "sessions#error", via: :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
